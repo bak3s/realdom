@@ -1,0 +1,31 @@
+<h1 class="page-header">Landlords</h1>
+<div class="table-responsive">
+  <table class="table table-striped" role="grid">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Date of birth</th>
+        <th class="text-center">Gender</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @landlords.each do |landlord| %>
+        <tr>
+          <td><%= landlord.id %></td>
+          <td><%= link_to landlord.name, landlord %></td>
+          <td><%= landlord.dob.to_formatted_s(:long) %></td>
+          <td class="text-center">
+              <i class="<%= get_gender_icon_class(landlord.gender) %>"></i>
+          </td>
+          <td class="text-right">
+            <%= link_to '', edit_landlord_path(landlord), class: 'fa fa-pencil-square' %>&nbsp;
+            <%= link_to '', landlord_path(landlord), method: :delete, data: { confirm: 'Are you sure you want to delete this landlord?' }, class: 'fa fa-minus-square text-danger' %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<%= link_to "Add Landlord", new_landlord_path, class: 'btn btn-primary' %>

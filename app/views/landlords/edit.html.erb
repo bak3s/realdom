@@ -1,0 +1,9 @@
+<div class="row">
+  <%= render partial: 'shared/errors', object: @landlord.errors %>
+  <div class="col-sm-6">
+    <header>
+      <h1>Edit <%= @landlord.name %> Landlord</h1>
+    </header>
+    <%= render partial: 'form' %>
+  </div>
+</div>

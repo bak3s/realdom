@@ -1,0 +1,8 @@
+<div class="jumbotron">
+  <h2>Welcome to Realdom!</h2>
+  <% if !user_signed_in? %>
+  <p><%= link_to 'Log in', new_user_session_path, class: 'btn btn-primary' %></p>
+  <% else %>
+  <p><%= link_to 'View Tenants', '/tenants', class: 'btn btn-primary' %></p>
+  <% end %>
+</div>
